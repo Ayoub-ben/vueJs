@@ -1,31 +1,48 @@
 <template>
-  <div>
-    <h2>{{ msg }}</h2>
-    <form class="ajouter" v-on:submit.prevent="ajouterRestaurant(event)">
-      <label>
-        Nom : <input name="name" type="text" required v-model="nom" />
-      </label>
-      <label>
-        Cuisine :
-        <input name="cuisine" type="text" required v-model="cuisine" />
-      </label>
+  <div>    
+<section class="menu">
+  <md-menu md-size="small">
+      <md-button md-menu-trigger>Master 1 MIAGE</md-button>
+    </md-menu>
 
-      <button>Ajouter</button>
-    </form>
+    <md-menu md-size="medium">
+      <md-button md-menu-trigger>DripAdvisor</md-button>
+    </md-menu>
 
-    <h1>Nombre de restaurants : {{ nbRestaurantsTotal }}</h1>
+    <md-menu md-size="big">
+     <md-button md-menu-trigger>restaurant</md-button>
+    </md-menu>
+
+    <md-menu md-size="huge">
+      <md-button md-menu-trigger>BENALLAL</md-button>
+    </md-menu>
+
+    <md-menu md-size="auto">
+      <md-button md-menu-trigger>MIGEAT</md-button>
+    </md-menu>
+</section>
+
+
+   <div class="container-fluid" style="width: 100%; height: 500px; background-attachment: fixed; background-image: url('pexels.jpg');background-size: 100% 100%; background-repeat: no-repeat;background-position:  cover ;overflow: hidden;">
+    <section class="titre">
+    <p class="style" >Trouvez le restaurant parfait</p>
+    <md-field class="text-center">
+    <md-icon>search</md-icon>
+      <label>nom du restaurant</label>
+      <md-input v-model="nomRestauRecherche"
+       @input="chercherRestaurants"></md-input>
+    </md-field>
+    </section>
+   </div>
+
+ 
+    
+
+   <section class="tab">
     <p>
-      Chercher par nom :
-      <input
-        @input="chercherRestaurants"
-        type="texte"
-        v-model="nomRestauRecherche"
-      />
-    </p>
-    <p>Nb de pages total : {{ nbPagesTotal }}</p>
-    <p>
-      Nb restaurants par page
-      <input
+      Nb restaurants par page <br/> 
+      <input 
+        class="custom-slider custom-slider-bullet"
         @input="getRestaurantsFromServeur()"
         type="range"
         min="2"
@@ -34,17 +51,11 @@
         v-model="pagesize"
       />{{ pagesize }}
     </p>
-    <md-button class="md-raised" :disable="page === 0" @click="pagePrecedente()">Précédent</md-button
-    >&nbsp;&nbsp;
-    <md-button class="md-raised" :disable="page === nbPagesTotal" @click="pageSuivante()">
-      Suivant
-    </md-button>
     
     <md-table v-model="restaurants">
         <md-table-row  
         slot="md-table-row" 
-        slot-scope="{ item, index }"
-        :style="{backgroundColor:getColor(index)}" 
+        slot-scope="{ item, index }"  
         :class="{bordureRouge:(index === 2)}"
       >
           <md-table-cell md-label="Name" md-sort-by="name">{{ item.name }}</md-table-cell>
@@ -58,58 +69,20 @@
       @click="RechercheNaps()"
       md-title="Post created!"
       md-content="Le restaurant recherché n'existe pas" />
+    </section>
 
+<section class="boubou">
+ <md-button class="md-raised" :disable="page === 0" @click="pagePrecedente()">Précédent</md-button
+    >&nbsp;&nbsp;
+    <md-button class="md-raised" :disable="page === nbPagesTotal" @click="pageSuivante()">
+      Suivant
+    </md-button>
+</section>
 
-
-      <md-menu md-size="small" :style="{backgroundColor : getColor(index)}">
-      <md-button md-menu-trigger>Small</md-button>
-
-      <md-menu-content>
-        <md-menu-item>My Item 1</md-menu-item>
-        <md-menu-item>My Item 2</md-menu-item>
-        <md-menu-item>My Item 3</md-menu-item>
-      </md-menu-content>
-    </md-menu>
-
-    <md-menu md-size="medium">
-      <md-button md-menu-trigger>Medium</md-button>
-
-      <md-menu-content>
-        <md-menu-item>My Item 1</md-menu-item>
-        <md-menu-item>My Item 2</md-menu-item>
-        <md-menu-item>My Item 3</md-menu-item>
-      </md-menu-content>
-    </md-menu>
-
-    <md-menu md-size="big">
-      <md-button md-menu-trigger>Big</md-button>
-
-      <md-menu-content>
-        <md-menu-item>My Item 1</md-menu-item>
-        <md-menu-item>My Item 2</md-menu-item>
-        <md-menu-item>My Item 3</md-menu-item>
-      </md-menu-content>
-    </md-menu>
-
-    <md-menu md-size="huge">
-      <md-button md-menu-trigger>Huge</md-button>
-
-      <md-menu-content>
-        <md-menu-item>My Item 1</md-menu-item>
-        <md-menu-item>My Item 2</md-menu-item>
-        <md-menu-item>My Item 3</md-menu-item>
-      </md-menu-content>
-    </md-menu>
-
-    <md-menu md-size="auto">
-      <md-button md-menu-trigger>Auto</md-button>
-
-      <md-menu-content>
-        <md-menu-item>My Item 1</md-menu-item>
-        <md-menu-item>This content is long enough</md-menu-item>
-        <md-menu-item>My Item 3</md-menu-item>
-      </md-menu-content>
-    </md-menu>
+  <section class="pop">
+  <p>Nombre de restaurants : {{ nbRestaurantsTotal }}</p>
+  <p>Nb de pages total : {{ nbPagesTotal }}</p>
+  </section>
   </div>
   
 </template>
@@ -240,11 +213,68 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style scoped>
-h1 {
-  background-color: yellow;
-}
+
 
 .ajouter{
   justify-content: center ;
 }
+
+.md-field {
+    
+   border: white ;
+  border-radius:30px;
+  background: white;
+  }
+
+.md-input{
+  
+}
+
+.menu{
+  margin-left:59%
+}
+
+.tab{
+   margin: auto;
+   margin-top:5%;
+   width:60%;
+   border: solid ;
+}
+
+.titre{
+margin-top: 15%;
+font-size:3em;
+color:white;
+
+}
+
+.style{
+text-align: center;
+font-family : Comic Sans MS, Comic Sans, cursive;
+}
+
+.boubou{
+  margin-left:65%
+}
+
+.info{
+  border : solid;
+  width:18%
+}
+
+
+/*==============================*/
+/* le curseur                   */
+/*==============================*/
+input[type=range].custom-slider.custom-slider-bullet::-webkit-slider-thumb {
+  width: 2em;
+  padding: 0.25em;                                              /* largeur du bord */
+  border: 1px solid #888;
+  border-radius: 50%;
+  box-shadow: 0 0 .5em #FFF inset;
+  background: linear-gradient(#888, #FFF) content-box,          /* le centre */
+              linear-gradient(-90deg, #888, #DDD) border-box;   /* le bord */
+}
+
+
 </style>

@@ -8,7 +8,7 @@
                     width="150px" class="MenuT" ></h1>
 
                     <div class="text">
-                        <h2>{{menuChef}}  </h2>
+                        <p>{{menuChef}}  </p>
 
          </div>
                 
@@ -37,3 +37,10 @@ export default {
   }
 }
 </script>
+
+
+<style>
+#containerImage{
+  
+}
+</style>

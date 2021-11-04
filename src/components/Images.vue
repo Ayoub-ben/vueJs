@@ -6,11 +6,10 @@
             <div class="containerImage">
             
             
-  <img height="300px" width="400px" v-bind:src="selectedImage" />
+  <img height="300px" width="400px" v-bind:src="selectedImage"   />
 
         </div>
         
-        <!--<img :src="require(`${monImage[2].url}`)">-->
     </section>
 </div>
 </template>
