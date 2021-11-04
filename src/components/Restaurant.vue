@@ -3,7 +3,7 @@
   
 <section class = "barre"> 
    <h1> Nom :  {{restaurant.name}} </h1>  
-    <p>Détail du restaurant qui a pour id : {{id}}   Ville :  {{restaurant.borough}} </p>
+    <p>Détail du restaurant qui a pour id : {{id}}   Ville :  {{restaurant.borough}} {{restaurant.grades}} </p>
      
 <section > 
 
@@ -29,7 +29,7 @@
               <br>
               <br>
                 <p>Les avis et les notes sont les moyennes de tous les internautes qui n'ont pas eu la flemme de noter le resto</p> <br>
-                <p>Grade</p>
+                <p>Grade </p>
                 <p>Score</p>
               </blockquote>
               
@@ -42,7 +42,6 @@
     
               </div>
               <blockquote>
-                <MenuT/>
               </blockquote>
               
             </div>
@@ -55,7 +54,7 @@
               </div>
               <blockquote>
                 <Map ref="map"/> <br> <br>
-                adresse : <br>
+                adresse : {{restaurant.address.building}}  {{restaurant.address.street}}<br>
                 tieks : <br>
                 encore un bails : 
               </blockquote>
@@ -75,7 +74,6 @@
 import Map from './Map.vue'
 import imageCarte from './CarteDesPlats.vue'
 import imagePorfolio from './Images.vue'
-import MenuT from './Menu.vue'
 
 export default {
   name: 'Restaurant',
@@ -83,7 +81,6 @@ export default {
       Map,
       imagePorfolio,
       imageCarte,
-      MenuT,
   },
   props: {
 

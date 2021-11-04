@@ -28,12 +28,12 @@ export default {
     data(){
         return{
             titre:'Menu',
-            TypeMenu : [{type:"Midi", numero:0, prix:"19€"},{type:"Gastronomique", numero:1, prix:"38€"}],
+            TypeMenu : [{type:"Menu Midi", numero:0, prix:"19€"},{type:"Menu Gastronomique", numero:1, prix:"38€"}],
         }
     },
     created () {
     const index = Math.floor(Math.random() * this.TypeMenu.length);
-    this.menuChef =  this.TypeMenu[index].type + " Prix " + this.TypeMenu[index].prix;
+    this.menuChef =  this.TypeMenu[index].type ;
   }
 }
 </script>
