@@ -8,7 +8,8 @@
                     width="150px" class="MenuT" ></h1>
 
                     <div class="text">
-                        <p>{{menuChef}}  </p>
+                        <p><md-icon style="color: red;">shopping_bag
+</md-icon> {{menuChef}}  </p>
 
          </div>
                 

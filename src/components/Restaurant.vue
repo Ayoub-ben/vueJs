@@ -27,8 +27,8 @@
    <h1> Nom :  {{restaurant.name}}  <span style="font-size: 12px;" class="gras"><md-icon style="color: red;">check</md-icon>Page attribuée </span>  </h1>  
     <p><md-icon style="color: red;"><span class="material-icons">
 perm_identity
-</span></md-icon>Détail du restaurant qui a pour id : <span class="gras">{{id}} </span> <md-icon style="color: red;">location_city</md-icon> Ville :  <span class="gras">  {{restaurant.borough}}  </span><md-icon style="color: red;">room</md-icon>
- adresse : <span class="gras"> {{restaurant.address.street}} </span> <md-icon style="color: red;">store</md-icon>
+</span></md-icon>Détail du restaurant qui a pour id : <span class="gras">{{id}} </span><md-icon style="color: red;">liquor</md-icon> Cuisine : <span class="gras">{{restaurant.cuisine}}</span> <md-icon style="color: red;">location_city</md-icon> Ville :  <span class="gras">  {{restaurant.borough}}  </span><md-icon style="color: red;">room</md-icon>
+ Adresse : <span class="gras"> {{restaurant.address.street}} </span> <md-icon style="color: red;">store</md-icon>
                 Code postale : <span class="gras">{{restaurant.address.zipcode}}</span></p> <br>
     </section> 
 
@@ -48,7 +48,8 @@ perm_identity
           <div class="col-sm" >
             <div class="testimonial-2" style="background-color:white; box-shadow: 8px 8px 12px #aaa;">
               <div class="d-flex v-card align-items-center mb-4">
-                <h1 style="text-align:center;"> Note</h1>
+                <h1 style="text-align:center;"><md-icon style="color: red;">star_rate
+</md-icon> Note</h1>
               </div>
               <blockquote>
               <br>
@@ -104,7 +105,7 @@ perm_identity
           <div class="col-sm" >
             <div class="testimonial-2" style="background-color:white; box-shadow: 8px 8px 12px #aaa; ">
               <div class="d-flex v-card align-items-center mb-4" >
-               <h2 style="font-weight:bold; ">  <md-icon>map</md-icon>Coordonées : </h2>
+               <h2 style="font-weight:bold; ">  <md-icon style="color:red;">map</md-icon>Coordonées : </h2>
               </div>
               <blockquote class="toka" style="font-size:130%; font-weight:bold; ">
                 <Map ref="map"/> <br> 

@@ -2,7 +2,7 @@
 <div>
     <section  >
 
-        <h2 id="SalleResto" style="text-align:center; margin-bottom:4%" ><md-icon>
+        <h2 id="SalleResto" style="text-align:center; margin-bottom:4%" ><md-icon style="color: red;">
 emoji_food_beverage
 </md-icon> {{titre}}</h2>
             <div class="containerImage">
