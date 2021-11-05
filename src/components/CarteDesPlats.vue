@@ -10,10 +10,10 @@
 <button type="button" class="btn btn-danger" @click="showCart = !showCart">Panier 
         <i class="fas fa-shopping-cart"></i>
       </button> 
-    <p >Mon Panier : Prix {{this.price}}€</p> 
+    <p >Mon Panier : Prix {{this.price}}€,  </p> 
     <div > 
     
-      <span>{{ totalQuantity }}</span>
+      <span> Quantité : {{ totalQuantity }}</span>
       <div v-if="showCart">
         <ul >
           <li
