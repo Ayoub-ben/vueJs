@@ -1,12 +1,16 @@
 <template>
 <div>
-    <section>
+    <section  >
 
-        <h2 id="SalleResto">{{titre}}</h2>
+        <h2 id="SalleResto" style="text-align:center; margin-bottom:4%" ><md-icon>
+emoji_food_beverage
+</md-icon> {{titre}}</h2>
             <div class="containerImage">
             
             
-  <img height="300px" width="400px" v-bind:src="selectedImage"   />
+  <img style="text-align:center;
+margin:auto;
+display:flex;" height="300px" width="60%" v-bind:src="selectedImage"   />
 
         </div>
         

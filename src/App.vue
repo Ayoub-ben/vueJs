@@ -2,10 +2,11 @@
   <div id="app">
   
 
-    <router-link to="/">[Home]</router-link>
+    
     <router-link to="/restaurant"></router-link>
     <router-view></router-view>
-    
+  
+  
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
+
 export default {
   name: 'App',
   components: {

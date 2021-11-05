@@ -1,6 +1,7 @@
 <template>
   <div>    
 <section class="menu">
+
   <md-menu md-size="small">
       <md-button md-menu-trigger>Master 1 MIAGE</md-button>
     </md-menu>
@@ -65,10 +66,12 @@
         </md-table-row>
     </md-table>
     <md-dialog-alert
+    
       :md-active="AucunRestaurant"
       @click="RechercheNaps()"
       md-title="Post created!"
-      md-content="Le restaurant recherché n'existe pas" />
+      md-content="Le restaurant recherché n'existe pas"
+       />
     </section>
 
 <section class="boubou">
@@ -83,15 +86,35 @@
   <p>Nombre de restaurants : {{ nbRestaurantsTotal }}</p>
   <p>Nb de pages total : {{ nbPagesTotal }}</p>
   </section>
+  <form class="ajouter" v-on:submit.prevent="ajouterRestaurant(event)">
+        <md-card class="mdcardajout">
+          <md-card-header>
+            <div class="md-title">Ajout de restaurant</div>
+          </md-card-header>
+
+          <md-field>
+            <label> Nom : </label>
+            <md-input name="name" type="text" required v-model="nom" />
+          </md-field>
+          <md-field>
+            <label> Cuisine : </label>
+            <md-input name="cuisine" type="text" required v-model="cuisine" />
+          </md-field>
+
+          <md-button type = submit() >Ajouter</md-button>
+        </md-card>
+      </form>
   </div>
   
 </template>
 
 <script>
+
 import _ from "lodash";
 
 export default {
   name: "ListeDesRestaurants",
+ 
   data: function () {
     return {
       restaurants: [],
@@ -104,6 +127,7 @@ export default {
       msg: "",
       nomRestauRecherche: "",
       AucunRestaurant: false,
+      event:"",
     };
   },
   mounted() {

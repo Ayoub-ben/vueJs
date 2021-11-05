@@ -2,46 +2,20 @@
 <div>
 
     <section>
-
-        <h2 id="porfolio">{{titre}}</h2>
-        <MenuT/>
-        
-        <ul>
-        <div v-for="menu in this.LeMenu[this.ind].Type" :key="menu.numero" class="image">
-           
-           
-            <li>
-           
-            <div class="containerImage">
-                <img :src="require(`@/assets/${menu.num}/${menu.cheminImage}.${menu.extension}`)" height="100px"
-                    width="150px" class="MenuRepas" :alt="menu.altTexte">
-                    <div class="overlay">
-                        <div class="text">
-                        <p>{{menu.description}}</p>
-
-                        </div>
-                    </div>
-                
-            </div>
-        </li>
-
-
-        </div></ul>
-        
+      <h3>  <MenuT/> </h3>
     </section>
 
 
-
-
 <nav class="nav">
-    <h2 class="nav__header">Mon Panier : Prix {{this.price}}€</h2>
-    <div class="nav__cart">
-      <button @click="showCart = !showCart">
+<button type="button" class="btn btn-danger" @click="showCart = !showCart">Panier 
         <i class="fas fa-shopping-cart"></i>
-      </button>
-      <span class="total-quantity">{{ totalQuantity }}</span>
-      <div v-if="showCart" class="cart-dropdown">
-        <ul class="cart-dropdown__list">
+      </button> 
+    <p >Mon Panier : Prix {{this.price}}€</p> 
+    <div > 
+    
+      <span>{{ totalQuantity }}</span>
+      <div v-if="showCart">
+        <ul >
           <li
             v-for="product in cart"
             :key="product.id"
@@ -52,26 +26,23 @@
       </div>
     </div>
   </nav>
-<section class="products">
+<section class="products"><br>
     <div v-for="product in this.Prod.Type" :key="product.id" class="product">
-      <h3 class="product__header">{{ product.name }}</h3>
+     
       <img
-        :src="require(`@/assets/${product.num}/${product.cheminImage}.${product.extension}`)" height="100px"
-                    width="150px" class="MenuRepas" :alt="product.altTexte"
+        :src="require(`@/assets/${product.num}/${product.cheminImage}.${product.extension}`)" 
+                   class="MenuRepas" :alt="product.altTexte"
         
       >
-      <p class="product__description">{{ product.description }}, Prix : {{product.prix}}€</p>
+      <p >{{ product.description }}, Prix : {{product.prix}}€</p>
       <div class="cart">
         <button
-          @click="updateCart(product, 'subtract')"
-          class="cart__button"
-        >
+          @click="updateCart(product, 'subtract')">
           -
         </button>
-        <span class="cart__quantity">{{ product.quantity }}</span>
+        <span >{{ product.quantity }}</span> 
         <button
-          @click="updateCart(product, 'add')"
-          class="cart__button"
+          @click="updateCart(product, 'add')"          
         >
           +
         </button>
@@ -79,7 +50,7 @@
     </div>
   </section>  
 
-  
+  <br>
 </div>
 </template>
 
@@ -290,3 +261,10 @@ console.log("Prix "+this.price)
   },
 }
 </script>
+
+<style>
+.MenuRepas{
+  height:60px;
+  width:80px;
+}
+</style>
