@@ -74,66 +74,7 @@ export default {
             monIndex : 0,
             price : 0,
             
-            LeMenu : [{
-                nom:"Italien",
-                Type : [
-                    {
-                        num: "1",
-                        numero:1,
-                        altTexte:"Salade",
-                        cheminImage:"1",
-                        extension:"jpeg",
-                        description:"Entrée : Salade made in Italy",
-                        prix: 8,
-                    },
-                    {
-                        num: "1",
-                        numero:2,
-                        altTexte:"Pasta",
-                        cheminImage:"2",
-                        extension:"jpg",
-                        description:"Plat : Pate faites maison à l'Italienne",
-                        prix:16,
-                    },{
-                        num: "1",
-                        numero:3,
-                        altTexte:"Tiramisu",
-                        cheminImage:"3",
-                        extension:"jpg",
-                        description:"Déssert : Tiramisu Milanais",
-                        prix: 7,
-                    }
-                ]},{
-                    nom:"Libanais",
-                Type : [
-                    {
-                        num: "2",
-                        numero:1,
-                        altTexte:"Salade",
-                        cheminImage:"1",
-                        extension:"jpg",
-                        description:"Entrée : Taboulé à la libanaise",
-                        prix : 10,
-                    },
-                    {
-                        num: "2",
-                        numero:2,
-                        altTexte:"Plat",
-                        cheminImage:"2",
-                        extension:"jpeg",
-                        description:"Plat : Tapas à la Libanaise ",
-                        prix : 19,
-                    },{
-                        numero:3,
-                        num: "2",
-                        altTexte:"Déssert",
-                        cheminImage:"3",
-                        extension:"jpg",
-                        description:"Déssert : Douceur d'Orient",
-                        prix : 11,
-                    }
-                ],}
-            ],
+            
         
         LeProduit : [{
                 Type: [
@@ -215,8 +156,7 @@ export default {
     },
     
     created () {
-    const index = Math.floor(Math.random() * this.LeMenu.length);
-    this.menuChef = this.LeMenu[index] ;
+    const index = Math.floor(Math.random() * this.LeProduit.length);
             
 
     this.Prod = this.LeProduit[index]
